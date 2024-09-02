@@ -1,53 +1,49 @@
-<script setup>
-import { ref, computed, defineComponent, h } from 'vue';
-import LandingPage from './components/LandingPage.vue'
-import InspirationPage from './components/InspirationPage.vue'
-import CocktailsPage from './components/CocktailsPage.vue'
-import PlantsPage from './components/PlantsPage.vue'
-
-
-// Define routes with absolute paths
-const routes = {
-  "/": LandingPage,                 
-  "/inspiration": InspirationPage, // images
-  "/cocktails": CocktailsPage, // accordion
-  "/plants": PlantsPage,   // grid
-};
-
-// Component to handle dynamic view based on URL hash
-const DynamicView = defineComponent({
-  setup() {
-    const currentPath = ref(window.location.hash.slice(1)); // Get the current hash
-
-    // Update the current path on hash change
-    window.addEventListener("hashchange", () => {
-      currentPath.value = window.location.hash.slice(1);
-    });
-
-    // Compute the component to render based on the current path
-    const currentView = computed(() => {
-      return routes[currentPath.value] || routes["/"]; // Default to Home if route not found
-    });
-
-    return { currentView };
-  },
-  render() {
-    return this.currentView ? h(this.currentView) : h('div', 'Page Not Found');
-  }
-});
-</script>
-
 <template>
   <div>
-    <nav>
-      <a href="#/">Garden & Sips</a>
-      <a href="#inspiration">Inspiration</a>
-      <a href="#cocktails">Cocktails</a>
-      <a href="#plants">Plants</a>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <div class="container-fluid">
+        <router-link to="/" class="navbar-brand">Gardens & Sips</router-link>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <router-link to="/inspiration" class="nav-link text-white">Inspiration</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/cocktails" class="nav-link text-white">Cocktails</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/plants" class="nav-link text-white">Plants</router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
-    <DynamicView />
+
+    <!-- This is where the routed component will be displayed -->
+    <router-view />
+
+    <footer class="footer bg-dark text-white text-center py-3">
+      <div class="container-fluid">
+        <p class="mb-0">&copy; 2024 Gardens & Sips All Rights Reserved</p>
+      </div>
+    </footer>
   </div>
 </template>
+
+<script setup>
+// No need to import specific components here, Vue Router will handle it.
+</script>
 
 <style>
 /* Add your styles here */

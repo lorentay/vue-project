@@ -1,23 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-import About from '../views/About.vue';
-import Contact from '../views/Contact.vue';
+import LandingPage from '../components/LandingPage.vue';
+import InspirationPage from '../components/InspirationPage.vue'; // images
+import CocktailsPage from '../components/CocktailsPage.vue'; // accordion
+import PlantsPage from '../components/PlantsPage.vue'; // grid
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Gardens & Sips',
+    component: LandingPage
   },
   {
-    path: '/about',
-    name: 'About',
-    component: About
+    path: '/inspiration',
+    name: 'Inspiration',
+    component: InspirationPage
   },
   {
-    path: '/contact',
-    name: 'Contact',
-    component: Contact
+    path: '/cocktails',
+    name: 'Cocktails',
+    component: CocktailsPage
+  },
+  {
+    path: '/plants',
+    name: 'Plants',
+    component: PlantsPage
   }
 ];
 
