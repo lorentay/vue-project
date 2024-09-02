@@ -1,4 +1,5 @@
 <template>
+  <!-- Controls the collapsible part of the navbar, which will be hidden or shown based on screen size. -->
   <div>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
       <div class="container-fluid">
@@ -14,6 +15,8 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- provides the links for the router -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
@@ -30,7 +33,7 @@
       </div>
     </nav>
 
-    <!-- This is where the routed component will be displayed -->
+    <!-- This is where the routed content will appear -->
     <router-view />
 
     <footer class="footer bg-dark text-white text-center py-3">
@@ -42,9 +45,19 @@
 </template>
 
 <script setup>
-// No need to import specific components here, Vue Router will handle it.
+// script for routing is located in index.js
 </script>
 
 <style>
-/* Add your styles here */
+.background-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8)),
+    url('../images/knot-garden.jpeg'); /* adds a white gradient overlay on the background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* prevents the background from expanding when expanding the accordion */
+}
 </style>

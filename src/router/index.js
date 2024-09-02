@@ -1,8 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import LandingPage from '../components/LandingPage.vue';
-import InspirationPage from '../components/InspirationPage.vue'; // images
-import CocktailsPage from '../components/CocktailsPage.vue'; // accordion
-import PlantsPage from '../components/PlantsPage.vue'; // grid
+// imports all the pages and provides routes to the files
+
+import { createRouter, createWebHistory } from 'vue-router'
+import LandingPage from '../components/LandingPage.vue'
+import InspirationPage from '../components/InspirationPage.vue' // images
+import CocktailsPage from '../components/CocktailsPage.vue' // accordion
+import PlantsPage from '../components/PlantsPage.vue' // grid
 
 const routes = [
   {
@@ -25,11 +27,11 @@ const routes = [
     name: 'Plants',
     component: PlantsPage
   }
-];
+]
 
 const router = createRouter({
   history: createWebHistory(),
   routes
-});
+})
 
-export default router;
+export default router

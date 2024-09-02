@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="background-container d-flex flex-column justify-content-center align-items-center text-center" style="min-height: 100vh">
+    <div
+      class="background-container d-flex flex-column justify-content-center align-items-center text-center"
+      style="min-height: 100vh"
+    >
       <div class="text-container p-4 bg-custom-opacity text-white rounded mt-5 mt-md-3">
         <h1 class="display-6 text-center text-white">Gardens & Sips</h1>
         <p class="lead text-white">
@@ -13,14 +16,17 @@
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Click for inspiring garden ideas"
-      >Get Inspired</a>
+        >Get Inspired</a
+      >
     </div>
   </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
+import bootstrap from 'bootstrap'; // imports bootstrap on this page to resolve a problem
 
+// initializes tooltips
 onMounted(() => {
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
   tooltipTriggerList.forEach(tooltipTriggerEl => {
@@ -30,19 +36,8 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* configues the background image */
-.background-container {
-  position: relative;
-  width: 100%;
-  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8)),url('/images/knot-garden.jpeg'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
 /* configures the box color behind the text to provide contrast to make the text readable */
 .bg-custom-opacity {
-  background-color: rgba(0, 0, 0, 0.6); 
+  background-color: rgba(0, 0, 0, 0.6);
 }
 </style>
