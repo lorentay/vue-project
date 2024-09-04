@@ -24,7 +24,6 @@
 
 <script setup>
 import { onMounted } from 'vue';
-import bootstrap from 'bootstrap'; // imports bootstrap on this page to resolve a problem
 
 // initializes tooltips
 onMounted(() => {
