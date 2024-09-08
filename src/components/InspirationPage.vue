@@ -1,8 +1,11 @@
 <template>
-  <div>
-    <h2>Inspiration Page</h2>
-    <!-- passes the images prop to CarouselImages component -->
-    <CarouselImages :images="images" />
+  <div class="inspiration-background">
+    <!-- The header content will now be passed via a slot to the CarouselImages component -->
+    <CarouselImages :images="images">
+      <template v-slot:header>
+        <h2 class="page-header">Inspiration</h2>
+      </template>
+    </CarouselImages>
   </div>
 </template>
 
@@ -31,4 +34,19 @@ const images = ref([
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae aut architecto tempora cupiditate.',
   },
 ]);
+console.log(images.value);
 </script>
+
+<style scoped>
+.page-header {
+  text-align: center;
+  font-size: 24px;
+  color: white;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+.inspiration-background {
+  background-color: black; 
+  min-height: 100vh; 
+}
+</style>

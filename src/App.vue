@@ -60,4 +60,8 @@
   background-repeat: no-repeat;
   background-attachment: fixed; /* prevents the background from expanding when expanding the accordion */
 }
+
+.bg-custom-opacity {
+  background-color: rgba(0, 0, 0, 0.6);
+}
 </style>

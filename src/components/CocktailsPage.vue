@@ -1,13 +1,9 @@
 <template>
-  <!-- Creates the container for the background with a full-screen
-      height, centering all its content both vertically and horizontally. -->
   <div class="background-container d-flex flex-column justify-content-center align-items-center text-center">
     <div class="container my-5 flex-grow-1 overflow-auto">
       <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="accordion" id="recipeAccordion">
-
-             <!-- Sets up interation and interates through recipes (objects) -->
             <div
               class="accordion-item"
               v-for="(recipe, index) in recipes"
@@ -17,9 +13,8 @@
                 <button
                   class="accordion-button"
                   type="button"
-                  :data-bs-target="'#collapse' + index"
-                  data-bs-toggle="collapse"
-                  :aria-expanded="index === 0 ? 'true' : 'false'"
+                  @click="toggleCollapse(index)"
+                  :aria-expanded="isOpen(index) ? 'true' : 'false'"
                   :aria-controls="'collapse' + index"
                 >
                   <img
@@ -34,9 +29,8 @@
               <div
                 :id="'collapse' + index"
                 class="accordion-collapse collapse"
-                :class="{ show: index === 0 }"
+                :class="{ show: isOpen(index) }"
                 :aria-labelledby="'heading' + index"
-                data-bs-parent="#recipeAccordion"
               >
                 <div class="accordion-body text-start">
                   <ul class="list-group list-group-flush">
@@ -49,14 +43,12 @@
                     </li>
                   </ul>
 
-                  <!-- v-if v-else statement adds a note to the Mojito cocktail -->
                   <div v-if="recipe.name === 'Mojito Cocktail Recipe'">
                     <p class="ms-3 text-success">
                       <strong>Note:</strong> A Mojito cocktail is traditionally served in a tall "collins" glass.
                     </p>
                   </div>
 
-                  <!-- ensures that the 'method' text appears with the special note in the v-if v-else statement -->
                   <p class="ms-3">
                     <strong>Method:</strong> {{ recipe.method }}
                   </p>
@@ -73,7 +65,7 @@
 <script setup>
 import { ref } from 'vue';
 
-// objects containing the cocktail recipes
+// Recipe data
 const recipes = ref([
   {
     name: 'Mojito Cocktail Recipe',
@@ -113,4 +105,23 @@ const recipes = ref([
     method: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, adipisci asperiores!',
   },
 ]);
+
+// Track which accordion items are open
+const openItems = ref([]); // Array to store the open accordion indexes
+
+// Function to toggle the collapse of an accordion item
+const toggleCollapse = (index) => {
+  if (openItems.value.includes(index)) {
+    // If the item is already open, close it
+    openItems.value = openItems.value.filter((i) => i !== index);
+  } else {
+    // Otherwise, open it
+    openItems.value.push(index);
+  }
+};
+
+// Function to check if an accordion item is open
+const isOpen = (index) => {
+  return openItems.value.includes(index);
+};
 </script>
