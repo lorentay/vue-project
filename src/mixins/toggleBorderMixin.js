@@ -1,18 +1,14 @@
 import { ref } from 'vue';
 
-console.log('toggleBorderMixin loaded'); 
+export default function toggleBorderMixin() {
+  const hasBorder = ref(false);
 
-export default {
-  setup() {
-    const hasBorder = ref(false);
+  function toggleBorder() {
+    hasBorder.value = !hasBorder.value;
+  }
 
-    const toggleBorder = () => {
-      hasBorder.value = !hasBorder.value;
-    };
-
-    return {
-      hasBorder,
-      toggleBorder,
-    };
-  },
-};
+  return {
+    hasBorder,
+    toggleBorder,
+  };
+}

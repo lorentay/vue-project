@@ -1,5 +1,5 @@
 <template>
-  <!-- Controls the collapsible part of the navbar, which will be hidden or shown based on screen size. -->
+  <!-- controls the collapsible part of the navbar, which will be hidden or shown based on screen size. -->
   <div>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
       <div class="container-fluid">

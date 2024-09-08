@@ -9,10 +9,13 @@
         :key="index"
         :class="['carousel-item', { active: index === 0 }]"
       >
+        <!-- applies a border on click/toggle -->
         <img
           :src="image.src"
           class="d-block w-100"
           :alt="image.alt"
+          :style="{ border: hasBorder[index] ? '5px solid green' : 'none' }"
+          @click="toggleBorder(index)"
         >
         <div class="carousel-caption d-block text-center p-4 bg-custom-opacity rounded">
           <h5>{{ image.caption }}</h5>
@@ -34,14 +37,25 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { ref } from 'vue';
 
+// Props for images
 const props = defineProps({
   images: {
     type: Array,
     required: true,
   },
 });
+
+// defines an array that tracks the border state for each image
+const hasBorder = ref(new Array(props.images.length).fill(false));
+
+// Toggles the border for each image
+function toggleBorder(index) {
+  console.log(`Image clicked at index: ${index}`); 
+  hasBorder.value[index] = !hasBorder.value[index];
+  console.log(`Border state for image ${index}:`, hasBorder.value[index]); 
+}
 </script>
 
 <style scoped>

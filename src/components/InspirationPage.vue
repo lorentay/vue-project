@@ -46,7 +46,7 @@ console.log(images.value);
   margin-bottom: 10px;
 }
 .inspiration-background {
-  background-color: black; 
+  background-color: #000; 
   min-height: 100vh; 
 }
 </style>
