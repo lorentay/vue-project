@@ -1,7 +1,8 @@
 <template>
   <div class="inspiration-background">
-    <!-- The header content will now be passed via a slot to the CarouselImages component -->
+    <!-- header content that is passed using a slot to the CarouselImages.vue component -->
     <CarouselImages :images="images">
+      <!-- provides actual content for the header in the carousel -->
       <template v-slot:header>
         <h2 class="page-header">Inspiration</h2>
       </template>
@@ -10,10 +11,11 @@
 </template>
 
 <script setup>
+// imports the CarouselImages component and Vue's ref function to manage reactivity
 import CarouselImages from './CarouselImages.vue';
 import { ref } from 'vue';
 
-// Images array for the carousel
+// array of images for the carousel that will display in the carousel component
 const images = ref([
   {
     src: '/images/plant-a-pot.jpeg',
@@ -34,10 +36,14 @@ const images = ref([
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae aut architecto tempora cupiditate.',
   },
 ]);
+
+// logs the image array to the console for debugging purposes
 console.log(images.value);
+
 </script>
 
 <style scoped>
+/* styles fo the header inside the carousel */
 .page-header {
   text-align: center;
   font-size: 24px;
@@ -45,6 +51,8 @@ console.log(images.value);
   padding-top: 10px;
   margin-bottom: 10px;
 }
+
+/* sets the background color and ensure full height */
 .inspiration-background {
   background-color: #000; 
   min-height: 100vh; 

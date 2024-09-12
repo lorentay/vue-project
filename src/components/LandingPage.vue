@@ -35,7 +35,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* configures the box color behind the text to provide contrast to make the text readable */
+/* adds a background color to the text to provide contrast for readability */
 .bg-custom-opacity {
   background-color: rgba(0, 0, 0, 0.6);
 }

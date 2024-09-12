@@ -1,5 +1,5 @@
 <template>
-  <!-- controls the collapsible part of the navbar, which will be hidden or shown based on screen size. -->
+  <!-- controls the collapsible part of the navbar, which is hidden or shown based on screen size. -->
   <div>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
       <div class="container-fluid">
@@ -61,7 +61,5 @@
   background-attachment: fixed; /* prevents the background from expanding when expanding the accordion */
 }
 
-.bg-custom-opacity {
-  background-color: rgba(0, 0, 0, 0.6);
-}
+
 </style>
