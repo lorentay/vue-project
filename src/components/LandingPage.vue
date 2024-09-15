@@ -1,5 +1,7 @@
 <template>
   <div>
+     <!-- creates the container for the background with a full-screen height, 
+     centering all its content both vertically and horizontally. -->
     <div
       class="background-container d-flex flex-column justify-content-center align-items-center text-center"
       style="min-height: 100vh"

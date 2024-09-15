@@ -11,7 +11,7 @@
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
           aria-expanded="false"
-          aria-label="Toggle navigation"
+          aria-label="toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,12 +33,12 @@
       </div>
     </nav>
 
-    <!-- This is where the routed content will appear -->
+    <!-- routed content appears here -->
     <router-view />
 
     <footer class="footer bg-dark text-white text-center py-3">
       <div class="container-fluid">
-        <p class="mb-0">&copy; 2024 Gardens & Sips All Rights Reserved</p>
+        <p class="mb-0">&copy; 2024 gardens & sips all rights reserved</p>
       </div>
     </footer>
   </div>
@@ -49,17 +49,16 @@
 </script>
 
 <style>
+/* styles the background image for cocktails and plants pages */
 .background-container {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8)),
-    url('../images/knot-garden.jpeg'); /* adds a white gradient overlay on the background image */
+    url('../images/knot-garden.jpeg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* prevents the background from expanding when expanding the accordion */
+  background-attachment: fixed; 
 }
-
-
 </style>

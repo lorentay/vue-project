@@ -1,4 +1,6 @@
 <template>
+  <!-- creates the container for the background with a full-screen
+      height, centering all its content both vertically and horizontally. -->
   <div class="background-container d-flex flex-column justify-content-center align-items-center text-center">
     <div class="container my-5 flex-grow-1 overflow-auto">
       <div class="row justify-content-center">
@@ -106,10 +108,10 @@ const recipes = ref([
   },
 ]);
 
-// Track which accordion items are open
+// tracks which accordion items are open
 const openItems = ref([]); // Array to store the open accordion indexes
 
-// Function to toggle the collapse of an accordion item
+// toggles the collapse of an accordion item
 const toggleCollapse = (index) => {
   if (openItems.value.includes(index)) {
     // If the item is already open, close it
@@ -120,7 +122,7 @@ const toggleCollapse = (index) => {
   }
 };
 
-// Function to check if an accordion item is open
+// checks if an accordion item is open
 const isOpen = (index) => {
   return openItems.value.includes(index);
 };

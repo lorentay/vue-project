@@ -1,17 +1,17 @@
 <template>
   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-    <!-- adds a slot for the header allowing dynamic content to be passed into the carousel's eader -->
-    <slot name="header"></slot>
+    <!-- Adds a slot for the header allowing dynamic content to be passed into the carousel's header -->
+    <slot></slot>
 
     <div class="carousel-inner">
-      <!-- loops through the images array and renders each image -->
+      <!-- loops through the images array -->
       <div
         v-for="(image, index) in images" 
         :key="index"
         :class="['carousel-item', { active: index === 0 }]"
       >
-       <!-- displays the image with a dynamic border that toggles when clicked -->       
-       <img
+        <!-- adds a border that toggles when clicked -->       
+        <img
           :src="image.src"
           class="d-block w-100"
           :alt="image.alt"
@@ -41,7 +41,7 @@
 <script setup>
 import { ref } from 'vue';
 
-// props for images (array of image objects passed from the parent)
+// props for array of image objects passed from the parent
 const props = defineProps({
   images: {
     type: Array,
@@ -59,7 +59,6 @@ function toggleBorder(index) {
 </script>
 
 <style scoped>
-/* adds a background color to the arrows to provide contrast for readability */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color: rgba(0, 0, 0, 0.6);
@@ -67,7 +66,7 @@ function toggleBorder(index) {
   width: 3.125rem;
   height: 3.125rem;
 }
-/* adds a background color to the text to provide contrast for readability */
+
 .bg-custom-opacity {
   background-color: rgba(0, 0, 0, 0.6);
 }
