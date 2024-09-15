@@ -1,10 +1,11 @@
+import 'bootstrap';
+
 <template>
   <div>
-     <!-- creates the container for the background with a full-screen height, 
+    <!-- creates the container for the background with a full-screen height, 
      centering all its content both vertically and horizontally. -->
     <div
       class="background-container d-flex flex-column justify-content-center align-items-center text-center"
-      style="min-height: 100vh"
     >
       <div class="text-container p-4 bg-custom-opacity text-white rounded mt-5 mt-md-3">
         <h1 class="display-6 text-center text-white">Gardens & Sips</h1>
@@ -25,15 +26,19 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+// ensures that the DOM is loaded before tooltips initialize
+import { onMounted } from 'vue'
+
+// imports tooltips directly
+import Tooltip from 'bootstrap/js/dist/tooltip'
 
 // initializes tooltips
 onMounted(() => {
-  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-  tooltipTriggerList.forEach(tooltipTriggerEl => {
-    new bootstrap.Tooltip(tooltipTriggerEl);
-  });
-});
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  tooltipTriggerList.forEach((tooltipTriggerEl) => {
+    new Tooltip(tooltipTriggerEl) // Directly use Tooltip
+  })
+})
 </script>
 
 <style scoped>

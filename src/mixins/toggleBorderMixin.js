@@ -1,14 +1,15 @@
-import { ref } from 'vue';
+// mixins/toggleBorderMixin.js
+import { ref } from 'vue'
 
-export default function toggleBorderMixin() {
-  const hasBorder = ref(false);
+export default function toggleBorderMixin(initialLength) {
+  const hasBorder = ref(new Array(initialLength).fill(false))
 
-  function toggleBorder() {
-    hasBorder.value = !hasBorder.value;
+  function toggleBorder(index) {
+    hasBorder.value[index] = !hasBorder.value[index]
   }
 
   return {
     hasBorder,
-    toggleBorder,
-  };
+    toggleBorder
+  }
 }

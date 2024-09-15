@@ -2,40 +2,40 @@
   <div class="inspiration-background">
     <!-- passed the header content to CarouselImages.vue using a slot -->
     <CarouselImages :images="images">
-        <h2 class="page-header">Inspiration</h2>
+      <h1 class="page-header">Inspiration</h1>
     </CarouselImages>
   </div>
 </template>
 
 <script setup>
-// Imports the CarouselImages component and Vue's ref function to manage reactivity
-import CarouselImages from './CarouselImages.vue';
-import { ref } from 'vue';
+// imports the CarouselImages component and Vue's ref function to manage reactivity
+import CarouselImages from './CarouselImages.vue'
+import { ref } from 'vue'
 
-// Array of images for the carousel that will display in the carousel component
+// array of images for the carousel that will display in the carousel component
 const images = ref([
   {
     src: '/images/plant-a-pot.jpeg',
     alt: 'A flowerpot with purple petunias, white mandevilla, and creeping jenny',
-    caption: 'Plant a Pot',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    title: 'Plant a Pot',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
   },
   {
     src: '/images/dress-the-table.jpeg',
     alt: 'White begonias and purple petunias in terra cotta pots with a small vase of fuchsia roses',
-    caption: 'Dress the Table',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    title: 'Dress the Table',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
   },
   {
     src: '/images/light-it-up.jpeg',
     alt: 'A garden with strings of white lights',
-    caption: 'Light It Up',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-  },
-]);
+    title: 'Light It Up',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+  }
+])
 
-// Logs the image array to the console for debugging purposes
-console.log(images.value);
+// logs the image array to the console for debugging purposes
+console.log(images.value)
 </script>
 
 <style scoped>
@@ -46,9 +46,9 @@ console.log(images.value);
   padding-top: 10px;
   margin-bottom: 10px;
 }
-
+/* adds a background color rather than a background image */
 .inspiration-background {
-  background-color: #000;
+  background-color: #2d462f;
   min-height: 100vh;
 }
 </style>

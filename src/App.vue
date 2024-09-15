@@ -46,6 +46,7 @@
 
 <script setup>
 // script for routing is located in index.js
+
 </script>
 
 <style>
